@@ -8,7 +8,7 @@ object Composition {
     println("-----------------------")
     traditionalDoctor.treat
     println("-----------------------")
-    traditionalDoctor.payBill("1000")
+    traditionalDoctor.getPaid("1000")
 
     println("=====================================")
     val modernDoctor = ModernDoctor("Doctor PC", "Ali Baba", "Modern Rey Shahr Hospital")
@@ -17,7 +17,7 @@ object Composition {
     println("-----------------------")
     modernDoctor.treat
     println("-----------------------")
-    modernDoctor.payBill("2000")
+    modernDoctor.getPaid("2000")
   }
 }
 
@@ -29,7 +29,14 @@ trait Patient {
   }
 }
 
+/**
+ * Here, <code>OldHospital</code> mixes the <code>Patient</code> traits without inheritance.
+ */
 trait OldHospital {
+  /*
+   * Here, we use a special technique.  This following says: "A class that uses OldHospital must also use Patient trait.".  
+   * That is why we can use the "treat" method of the patient class here. 
+   */
   this: Patient =>
   val hospitalName: String
 
@@ -39,6 +46,10 @@ trait OldHospital {
   }
 }
 
+/**
+ * Here, <code>ModernHospital</code> simply inherits from another trait <code>Patient</code>.
+ * This is inheritance solution with its advantages and disadvantages.
+ */
 trait ModernHospital extends Patient {
   val hospitalName: String
 
@@ -56,10 +67,14 @@ trait ModernHospital extends Patient {
 }
 
 trait Payment {
-  def payBill(amount: String) {
+  def getPaid(amount: String) {
     println("Paying the bill for the amount " + amount)
   }
 }
 
+/**
+ * A class can inherit from only one other class.  A class can also inherit from traits.  For the first class or trait, it "extends" while for the remaining
+ * traits is "uses".
+ */
 case class TraditionalDoctor(val name: String, val patientName: String, val hospitalName: String) extends OldHospital with Patient with Payment
 case class ModernDoctor(val name: String, val patientName: String, val hospitalName: String) extends ModernHospital with Payment 

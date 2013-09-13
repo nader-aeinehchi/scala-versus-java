@@ -9,7 +9,7 @@ public class TraditionalDoctor {
 		System.out.println("-----------------------");
 		traditionalDoctor.treat();
 		System.out.println("-----------------------");
-		traditionalDoctor.payment.payBill("1000");
+		traditionalDoctor.payment.getPaid("1000");
 
 	}
 
@@ -25,6 +25,10 @@ public class TraditionalDoctor {
 		this.patient = new Patient(patientName);
 		this.oldHospital = new OldHospital(hospitalName, this.patient);
 
+	}
+	
+	public void getPaid(final String amount){
+		this.payment.getPaid(amount);
 	}
 
 	public void cure() {

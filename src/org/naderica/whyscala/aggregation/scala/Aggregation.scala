@@ -13,6 +13,11 @@ object SComposition {
 
 }
 
+/**
+ * Note that case classes automatically provide overridden <code>equals</code>, <code>hashCode</code> and <code>toString</code> methods.
+ * 
+ * <p>Case classes are perfect choices for pattern matching in Scala. 
+ */
 case class Name(val firstName: String, val lastName: String)
 case class Address(val street: String, val city: String, val country: String)
 case class ElectronicAddress(val phone: String, val email: String)

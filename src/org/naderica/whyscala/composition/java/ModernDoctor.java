@@ -9,7 +9,7 @@ public class ModernDoctor {
 		System.out.println("-----------------------");
 		traditionalDoctor.treat();
 		System.out.println("-----------------------");
-		traditionalDoctor.payment.payBill("2000");
+		traditionalDoctor.payment.getPaid("2000");
 
 	}
 
@@ -37,6 +37,9 @@ public class ModernDoctor {
 		this.modernHospital.treat();
 	}
 
+	public void getPaid(final String amount){
+		this.payment.getPaid(amount);
+	}
 
 	@Override
 	public boolean equals(Object obj) {

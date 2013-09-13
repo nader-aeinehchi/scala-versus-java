@@ -10,14 +10,29 @@ public class JCopy {
 		this.lastName = lastName;
 	}
 
+	/**
+	 * 
+	 * @param firstName
+	 * @return a new instance using <code>firstName</code>
+	 */
 	public JCopy copyWithFirstName(final String firstName) {
 		return new JCopy(firstName, this.lastName);
 	}
 
+    /**
+     * 
+     * @param lastName
+     * @return a new instance using <code>lastName</code>
+     */
 	public JCopy copyWithLastName(final String lastName) {
 		return new JCopy(this.firstName, lastName);
 	}
 
+    /**
+     * 
+     * @param firstName
+     * @return a new instance using <code>firstName</code>
+     */
 	public String getFirstName() {
 		return this.firstName;
 	}

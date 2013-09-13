@@ -1,5 +1,8 @@
 package org.naderica.whyscala.singleton.scala
 
+/**
+ * Objects are singletons in Scala.
+ */
 object Printer {
 
   /**
@@ -23,7 +26,7 @@ object Printer {
   val manualMachine = new Printer("A4", true) with Scanner
   
   /**
-   * Denotes a machine that first scans and then print a document.
+   * Denotes a machine that first scans and then print a document.  Here, we compose a trait.
    */
   val automaticMachine = new Printer("A2", true) with Scanner{
     override def process(document:String){
