@@ -18,6 +18,7 @@ object Composition {
     modernDoctor.treat
     println("-----------------------")
     modernDoctor.getPaid("2000")
+    
   }
 }
 
